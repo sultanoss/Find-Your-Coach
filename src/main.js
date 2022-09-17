@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 
+import BaseDialog from "./components/UI/BaseDialog.vue";
 import BasSpinner from "./components/UI/BaseSpinner.vue";
 import BaseBadge from "./components/UI/BaseBadge.vue";
 import BaseButton from "./components/UI/BaseButton.vue";
@@ -13,6 +14,7 @@ const app = createApp(App);
 
 app.use(router);
 app.use(store);
+app.component("base-dialog",BaseDialog)
 app.component("base-spinner", BasSpinner);
 app.component("base-badge", BaseBadge);
 app.component("base-card", BaseCard);

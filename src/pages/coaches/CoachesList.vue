@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="!!error" title="An error occurred" @close="handleError"> <!--  !!error convert a string to a boolean-->
+    <p>{{error}}</p>
+  </base-dialog>
   <section>
     <coach-filter @change-filter="setFilters"></coach-filter>
   </section>
@@ -38,12 +41,14 @@ import BaseCard from "@/components/UI/BaseCard";
 import BaseButton from "@/components/UI/BaseButton";
 import CoachFilter from "@/components/coaches/CoachFilter";
 import BaseSpinner from "@/components/UI/BaseSpinner";
+import BaseDialog from "@/components/UI/BaseDialog";
 
 export default {
-  components: { BaseSpinner, CoachFilter, BaseButton, BaseCard, CoachesItem },
+  components: { BaseDialog, BaseSpinner, CoachFilter, BaseButton, BaseCard, CoachesItem },
   data() {
     return {
       isLoading: false,
+      error: null,
       activeFilters: {
         frontend: true,
         backend: true,
@@ -84,9 +89,16 @@ export default {
     },
     async loadCoaches() {
       this.isLoading = true;
-      await this.$store.dispatch("coaches/loadCoaches"); //dispatch method return a promise.we can use async/await (loading spinner set to true and after loadCoaches set to false)
+      try {
+        await this.$store.dispatch("coaches/loadCoaches"); //dispatch method return a promise.we can use async/await (loading spinner set to true and after loadCoaches set to false)
+      } catch (error) {
+        this.error = error.message || "Something went wrong!";
+      }
       this.isLoading = false;
-    }
+    },
+    handleError(){
+      this.error = null; // error false dialog will close
+    },
   },
 
 };
