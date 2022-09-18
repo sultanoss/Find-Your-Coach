@@ -68,3 +68,28 @@ export default {
 
 };
 </script>
+
+<style scoped>
+
+h2 {
+  color: #023b59;
+}
+
+h3 {
+  color: #482673;
+}
+
+p {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 4px;
+  min-height: 89px;
+  margin-top: 41px;
+  margin-bottom: 25px;
+}
+
+.card h2{
+  margin-top: 0;
+}
+
+</style>

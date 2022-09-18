@@ -1,53 +1,55 @@
 <template>
-  <header>
-    <nav>
-      <h1>
+  <toolbar>
+    <template #start>
+      <div class=" logo flex align-items-center justify-content-center">
         <router-link to="/">Find a Coach</router-link>
-      </h1>
-      <ul>
-        <li>
-          <router-link to="/coaches">All Coaches</router-link>
-        </li>
-        <li>
-          <router-link to="/requests">Requests</router-link>
-        </li>
-      </ul>
-    </nav>
-  </header>
+        <i class="pi pi-search"
+           style="font-size: 1.5rem"></i>
+      </div>
+    </template>
+
+    <template #end>
+      <router-link to="/coaches">All Coaches</router-link>
+      <router-link to="/requests">Requests</router-link>
+    </template>
+  </toolbar>
 </template>
 
 <style>
 
-header {
+.p-toolbar {
+  height: 75px;
   width: 100%;
-  height: 5rem;
-  background-color: #3d008d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #023b59;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-header a {
+a {
   text-decoration: none;
-  color: #f391e3;
+  color: #f6ebf4;
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  /*padding: 0.75rem 1.5rem;*/
+  /*border: 1px solid transparent;*/
 }
 
 a:active,
-a:hover,
+  /*a:hover,*/
 a.router-link-active {
-  border: 1px solid #f391e3;
+  border-bottom: 3px solid #ed0b70;
 }
 
 h1 {
   margin: 0;
+  color: #f6ebf4;
 }
 
-h1 a {
-  color: white;
-  margin: 0;
+.logo a {
+ font-size: 24px;
 }
 
 h1 a:hover,

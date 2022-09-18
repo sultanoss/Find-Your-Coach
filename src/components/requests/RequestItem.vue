@@ -28,18 +28,18 @@ li {
 }
 
 a {
-  color: #3d008d;
+  color: #023b59;
   text-decoration: none;
   font-weight: bold;
 }
 
 a:hover,
 a:active {
-  color: #8d007a;
+  color: #ed0b70;
 }
 
 p {
-  margin: 0.5rem 0 0 0;
+  margin: 0.5rem 0 0 10px;
 }
 
 </style>

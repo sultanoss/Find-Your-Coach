@@ -21,24 +21,28 @@ export default {
 .badge {
   background-color: #ccc;
   color: #252525;
-  border-radius: 30px;
+  border-radius: 0% 20% / 10% 40%;
   padding: 0.5rem 1.5rem;
   display: inline-block;
   margin-right: 0.5rem;
+  font-size: 10px;
+  width: 100px;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .frontend {
-  background-color: #3d008d;
+  background-color:#023b59;
   color: white;
 }
 
 .backend {
-  background-color: #71008d;
+  background-color: #023b59;
   color: white;
 }
 
 .career {
-  background-color: #8d006e;
+  background-color: #023b59;
   color: white;
 }
 

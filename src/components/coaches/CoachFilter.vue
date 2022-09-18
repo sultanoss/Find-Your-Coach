@@ -60,6 +60,7 @@ export default {
 <style scoped>
 h2 {
   margin: 0.5rem 0;
+  color: #023b59;
 }
 
 .filter-option {

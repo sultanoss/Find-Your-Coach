@@ -79,4 +79,8 @@ h3 {
   text-align: center;
 }
 
+h2{
+  color: #023b59;
+}
+
 </style>

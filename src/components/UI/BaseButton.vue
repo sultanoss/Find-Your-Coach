@@ -40,13 +40,15 @@ export default {
 button,
 a {
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
+  padding: 6px;
+  width: 120px;
+  text-align: center;
   font: inherit;
-  background-color: #3a0061;
-  border: 1px solid #3a0061;
+  border: 1px solid black;
+  background-color:#ed0b70;
   color: white;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 4px;
   margin-right: 0.5rem;
   display: inline-block;
 }
@@ -55,8 +57,7 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #270041;
-  border-color: #270041;
+  border-color: #ed0b70;
 }
 
 .flat {
@@ -66,16 +67,16 @@ button:active {
 }
 
 .outline {
-  background-color: transparent;
-  border-color: #270041;
-  color: #270041;
+  background-color:#4cbfa6;
+  border-color: black;
+  color: white;
 }
 
 .flat:hover,
 .flat:active,
 .outline:hover,
 .outline:active {
-  background-color: #edd2ff;
+  border-color: #4cbfa6;
 }
 
 </style>
