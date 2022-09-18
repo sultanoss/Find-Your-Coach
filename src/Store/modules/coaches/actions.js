@@ -24,7 +24,10 @@ export default {
       id: userId,
     });
   },
-  async loadCoaches(context) {
+  async loadCoaches(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) { // to not fetch all the Time if all coaches visited, will fetch automatically after 60 second or press refresh button
+      return;
+    }
     const response = await fetch(
       `https://find-a-coach-1af22-default-rtdb.europe-west1.firebasedatabase.app/coaches.json`
     );
@@ -46,5 +49,6 @@ export default {
       coaches.push(coach);
     }
     context.commit("setCoaches", coaches);
+    context.commit(("setFetchTimestamp"));
   },
 };
