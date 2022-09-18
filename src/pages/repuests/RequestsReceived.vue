@@ -1,8 +1,14 @@
 <template>
+  <base-dialog :show="!!error"
+               title="An error occurred"
+               @close="handleError"> <!--  !!error convert a string to a boolean-->
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <base-card>
       <h2>Requests Received</h2>
-      <ul v-if="hasRequests">
+      <base-spinner v-if="isLoading"></base-spinner>
+      <ul v-else-if="hasRequests && !isLoading">
         <request-item v-for="req in receivedRequests"
                       :key="req.id"
                       :email="req.userEmail"
@@ -15,9 +21,17 @@
 <script>
 import BaseCard from "@/components/UI/BaseCard";
 import RequestItem from "@/components/requests/RequestItem";
+import BaseDialog from "@/components/UI/BaseDialog";
+import BaseSpinner from "@/components/UI/BaseSpinner";
 
 export default {
-  components: { RequestItem, BaseCard },
+  components: { BaseSpinner, BaseDialog, RequestItem, BaseCard },
+  data() {
+    return {
+      isLoading: false,
+      error: null,
+    };
+  },
   computed: {
     receivedRequests() {
       return this.$store.getters["requests/requests"];
@@ -25,6 +39,23 @@ export default {
     hasRequests() {
       return this.$store.getters["requests/hasRequests"];
     }
+  },
+  created() {
+    this.loadRequests();
+  },
+  methods: {
+    async loadRequests() {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch("requests/fetchRequests");
+      } catch (error) {
+        this.error = error.message || "Something went wrong";
+      }
+      this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
+    },
   }
 };
 </script>
