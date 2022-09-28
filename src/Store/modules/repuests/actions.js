@@ -20,7 +20,8 @@ export default {
   },
   async fetchRequests(context) {
     const coachId = context.rootGetters.userId; // get only requests from registered coach  through his id
-    const response = await fetch(`https://find-a-coach-1af22-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json`);
+    const token = context.rootGetters.token;
+    const response = await fetch(`https://find-a-coach-1af22-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json?auth=` + token);
     const responseData = await response.json();
     if (!response.ok) {
       const error = new Error(responseData.message || "Failed to send requests.");

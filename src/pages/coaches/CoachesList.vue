@@ -16,7 +16,11 @@
           </base-button>
           <base-button link
                        to="/register"
-                       v-if="!isCoach && !isLoading">Register as Coach
+                       v-if=" isLoggedIn && !isCoach && !isLoading">Register as Coach
+          </base-button>
+          <base-button v-if="!isLoggedIn"
+                       link
+                       to="/auth?redirect=register">Login to Register as Coach
           </base-button>
         </div>
         <div v-if="isLoading">
@@ -81,12 +85,17 @@ export default {
     },
     isCoach() {
       return !this.isLoading && this.$store.getters["coaches/isCoach"];
-    }
+    },
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
 
   },
+
   created() {
     this.loadCoaches();
   },
+
   methods: {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;

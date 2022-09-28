@@ -10,10 +10,28 @@
 
     <template #end>
       <router-link to="/coaches">All Coaches</router-link>
-      <router-link to="/requests">Requests</router-link>
+      <router-link to="/requests" v-if="isLoggedIn">Requests</router-link>
+      <router-link to="/auth" v-if="!isLoggedIn">Login</router-link>
+      <base-button v-if="isLoggedIn" @click="logout">Logout</base-button>
     </template>
   </toolbar>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
+  methods:{
+    logout(){
+      this.$store.dispatch('logout');
+      this.$router.replace('/coaches');
+    }
+  }
+};
+</script>
 
 <style>
 
@@ -49,7 +67,7 @@ h1 {
 }
 
 .logo a {
- font-size: 24px;
+  font-size: 24px;
 }
 
 h1 a:hover,
