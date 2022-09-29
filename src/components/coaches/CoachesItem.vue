@@ -1,7 +1,7 @@
 <template>
   <li>
     <h3>{{ fullName }}</h3>
-    <h4>${{ rate }}</h4>
+    <h4>$ {{ rate }}</h4>
     <div>
       <base-badge v-for="area of areas"
                   :type="area"
@@ -50,29 +50,36 @@ li {
   margin: 1rem 0;
   border: 1px solid #424242;
   border-radius: 12px;
-  padding:0 25px 25px 25px;
+  padding:0 16px 16px 16px;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color:#023b59 ;
 }
 
 h3,
 h4 {
-  margin-top: 25px;
+  margin-top: 16px;
   margin-bottom: 0;
   color: #023b59;
-}
-
-div {
-
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 25px;
+  margin-top: 16px;
+}
+a:active{
+  border:none;
+}
+
+a{
+  font-weight: 600;
+}
+
+a:hover{
+  color:#ed0b70;
 }
 
 </style>

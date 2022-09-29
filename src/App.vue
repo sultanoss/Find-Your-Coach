@@ -6,6 +6,7 @@
       <component :is="slotProps.Component"></component>
     </transition>
   </router-view>
+  <div class="footer"></div>
 </template>
 
 <script>
@@ -34,6 +35,11 @@ html {
 body {
   margin: 0;
   background-color: #eaeaea;
+}
+
+.footer{
+  height: 50px;
+  background-color: #023b59;
 }
 
 /*.route-enter-from {*/

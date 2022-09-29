@@ -1,5 +1,5 @@
 <template>
-  <base-card>
+  <div class="filter-options">
     <h2>Find Your Coach</h2>
     <span class="filter-option">
       <input type="checkbox"
@@ -22,7 +22,7 @@
              @change="setFilter" />
       <label for="career">Career</label>
     </span>
-  </base-card>
+  </div>
 </template>
 
 <script>
@@ -58,9 +58,15 @@ export default {
 </script>
 
 <style scoped>
+.filter-options {
+  width: 95%;
+  margin-top: 16px;
+}
+
 h2 {
   margin: 0.5rem 0;
   color: #023b59;
+  font-size: 20px;
 }
 
 .filter-option {

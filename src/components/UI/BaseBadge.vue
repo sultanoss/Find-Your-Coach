@@ -28,7 +28,7 @@ export default {
   font-size: 10px;
   width: 100px;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 16px;
 }
 
 .frontend {

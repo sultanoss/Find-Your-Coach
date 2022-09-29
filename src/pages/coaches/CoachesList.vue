@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="coaches-list-container">
     <base-dialog :show="!!error"
                  title="An error occurred"
                  @close="handleError"> <!--  !!error convert a string to a boolean-->
@@ -11,16 +11,15 @@
     <section>
       <base-card>
         <div class="controls">
-          <base-button mode="outline"
-                       @click="loadCoaches(true)">Refresh
-          </base-button>
+          <div>
+            <i class="pi pi-refresh  mr-1"
+               style="cursor: pointer"
+               @click="loadCoaches(true)"></i>
+            <span>Refresh</span>
+          </div>
           <base-button link
                        to="/register"
                        v-if=" isLoggedIn && !isCoach && !isLoading">Register as Coach
-          </base-button>
-          <base-button v-if="!isLoggedIn"
-                       link
-                       to="/auth?redirect=register">Login to Register as Coach
           </base-button>
         </div>
         <div v-if="isLoading">
@@ -129,6 +128,41 @@ ul {
 .controls {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  padding: 6px;
+  text-align: center;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0;
+  font-weight: 500;
+  background-color: #ed0b70;
+  font-size: 14px;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.coaches-list-container{
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 </style>
 

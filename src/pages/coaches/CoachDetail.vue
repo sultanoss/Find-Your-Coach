@@ -1,38 +1,29 @@
 <template>
-  <div>
-    <section>
-      <base-card>
-        <h2>{{ fullName }}</h2>
-        <h3>{{ rate }}/hour</h3>
-      </base-card>
-    </section>
-    <section>
-      <base-card>
-        <h2>Interested Reach out now!</h2>
-        <base-button link
-                     :to="contactLink">Contact
-        </base-button>
-        <router-view></router-view>
-      </base-card>
-    </section>
-    <section>
-      <base-card>
-        <base-badge v-for="area in areas"
-                    :key="area"
-                    :type="area"
-                    :title="area"></base-badge>
-        <p>{{ description }}</p>
-      </base-card>
-    </section>
+  <div class="coach-details-container">
+    <div class="coach-details">
+      <h2>{{ fullName }}</h2>
+      <h3>{{ rate }}/hour</h3>
+      <div>
+      <base-badge v-for="area in areas"
+                  :key="area"
+                  :type="area"
+                  :title="area"></base-badge>
+      </div>
+      <p>{{ description }}</p>
+<!--      <h2>Interested Reach out now!</h2>-->
+      <!--      <base-button link-->
+      <!--                   :to="contactLink">Contact-->
+      <!--      </base-button>-->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
 
-import BaseCard from "@/components/UI/BaseCard";
 import BaseBadge from "@/components/UI/BaseBadge";
 
 export default {
-  components: { BaseBadge, BaseCard },
+  components: { BaseBadge },
   props: ["id"],
   data() {
     return {
@@ -71,25 +62,58 @@ export default {
 
 <style scoped>
 
+.coach-details-container {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.coach-details {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border: 1px solid #023b59;
+  padding: 20px;
+  border-radius: 12px;
+}
+
 h2 {
   color: #023b59;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 h3 {
-  color: #482673;
+  color: #023b59;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 p {
   border: 1px solid black;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 12px;
   min-height: 89px;
-  margin-top: 41px;
-  margin-bottom: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.card h2{
+.frontend{
   margin-top: 0;
+  margin-bottom: 20px;
 }
+.backend{
+   margin-top: 0;
+   margin-bottom: 20px;
+ }
+
+.career{
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 
 </style>

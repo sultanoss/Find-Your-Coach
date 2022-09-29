@@ -6,28 +6,48 @@
         <i class="pi pi-search"
            style="font-size: 1.5rem"></i>
       </div>
-    </template>
+      <div>
+        <router-link to="/coaches">All Coaches</router-link>
+        <router-link to="/requests"
+                     v-if="isLoggedIn">Requests
+        </router-link>
+      </div>
+      <div class="login-logout-btn flex align-items-center justify-content-center">
+      <span v-if="!isLoggedIn">
+        <i class="pi pi-sign-in"
+           style="font-size: 12px"></i>
+      </span>
+        <router-link to="/auth"
+                     v-if="!isLoggedIn">Login
+        </router-link>
 
-    <template #end>
-      <router-link to="/coaches">All Coaches</router-link>
-      <router-link to="/requests" v-if="isLoggedIn">Requests</router-link>
-      <router-link to="/auth" v-if="!isLoggedIn">Login</router-link>
-      <base-button v-if="isLoggedIn" @click="logout">Logout</base-button>
+        <span v-if="isLoggedIn">
+        <i class="pi pi-sign-out"
+           style="font-size: 12px"></i>
+      </span>
+        <button v-if="isLoggedIn"
+                @click="logout">Logout
+        </button>
+      </div>
     </template>
   </toolbar>
 </template>
 
 <script>
 export default {
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.isAuthenticated;
-    }
+    },
   },
-  methods:{
-    logout(){
-      this.$store.dispatch('logout');
-      this.$router.replace('/coaches');
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.replace("/coaches");
+    },
+    toggle(event) {
+      this.$refs.menu.toggle(event);
     }
   }
 };
@@ -36,12 +56,13 @@ export default {
 <style>
 
 .p-toolbar {
-  height: 75px;
+  height: 50px;
   width: 100%;
   background-color: #023b59;
   color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
 }
 
 a {
@@ -49,10 +70,7 @@ a {
   color: #f6ebf4;
   display: inline-block;
   margin-left: 10px;
-  margin-right: 10px;
-
-  /*padding: 0.75rem 1.5rem;*/
-  /*border: 1px solid transparent;*/
+  margin-right: 5px;
 }
 
 a:active,
@@ -67,7 +85,10 @@ h1 {
 }
 
 .logo a {
-  font-size: 24px;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 0;
+  border: unset;
 }
 
 h1 a:hover,
@@ -95,6 +116,31 @@ header ul {
 
 li {
   margin: 0 0.5rem;
+}
+
+.p-menu ul {
+  background-color: #023b59;
+}
+
+button {
+  cursor: pointer;
+  color: #f6ebf4;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+button:hover {
+  color: #ed0b70;
+}
+
+.p-toolbar-group-left {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 </style>

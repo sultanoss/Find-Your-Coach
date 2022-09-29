@@ -41,15 +41,11 @@ button,
 a {
   text-decoration: none;
   padding: 6px;
-  width: 120px;
   text-align: center;
   font: inherit;
-  border: 1px solid black;
-  background-color:#ed0b70;
-  color: white;
+  color: black;
   cursor: pointer;
   border-radius: 4px;
-  margin-right: 0.5rem;
   display: inline-block;
 }
 

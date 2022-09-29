@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-logout-container">
     <base-dialog :show="!!error"
                  title="An error occurred"
                  @close="handleError">
@@ -10,7 +10,6 @@
                  title="Authenticating...">
       <base-spinner></base-spinner>
     </base-dialog>
-    <base-card>
       <form @submit.prevent="submitForm">
         <div class="form-control">
           <label for="email">E-Mail</label>
@@ -27,23 +26,21 @@
         <p v-if="!formIsValid">
           Please enter a valid E-mail. Password at least 6 characters long.
         </p>
-        <base-button>{{ submitButtonCaption }}</base-button>
-        <base-button type="button"
+        <button>{{ submitButtonCaption }}</button>
+        <button type="button"
                      mode="flat"
                      @click="switchAuthMode">{{ switchModeButtonCaption }}
-        </base-button>
+        </button>
       </form>
-    </base-card>
   </div>
 </template>
 <script>
-import BaseButton from "@/components/UI/BaseButton";
-import BaseCard from "@/components/UI/BaseCard";
+
 import BaseDialog from "@/components/UI/BaseDialog";
 import BaseSpinner from "@/components/UI/BaseSpinner";
 
 export default {
-  components: { BaseSpinner, BaseDialog, BaseCard, BaseButton },
+  components: { BaseSpinner, BaseDialog},
   data() {
     return {
       email: "",
@@ -113,11 +110,20 @@ export default {
 
 <style scoped>
 
+.login-logout-container{
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 form {
   margin: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #023b59;
   border-radius: 12px;
   padding: 1rem;
+  width: 400px;
 }
 
 .form-control {
@@ -144,6 +150,12 @@ textarea:focus {
   border-color: #3d008d;
   background-color: #faf6ff;
   outline: none;
+}
+button{
+  color: black;
+}
+p{
+  color: red;
 }
 
 </style>

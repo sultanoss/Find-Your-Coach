@@ -50,8 +50,12 @@ export default {
 
 <style scoped>
 
+.coach-details{
+  border: unset;
+}
+
 form {
-  margin: 1rem;
+  margin: 20px 0 0 0;
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 1rem;
@@ -74,6 +78,7 @@ textarea {
   font: inherit;
   border: 1px solid #ccc;
   padding: 0.15rem;
+  resize: none;
 }
 
 input:focus,
@@ -90,6 +95,26 @@ textarea:focus {
 
 .actions {
   text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px lightgrey;
+  border: solid 3px transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px rgb(174, 174, 174);
+  border: solid 3px transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 10px 10px rgb(142, 142, 142);
 }
 
 </style>

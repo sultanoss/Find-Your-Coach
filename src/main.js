@@ -15,6 +15,7 @@ import Checkbox from 'primevue/checkbox';
 import Toolbar from 'primevue/toolbar';
 import Button from 'primevue/button';
 import 'primeicons/primeicons.css'
+import Menu from 'primevue/menu';
 
 
 
@@ -33,6 +34,7 @@ app.component("base-button", BaseButton);
 app.component('Toolbar', Toolbar);
 app.component('Button',Button)
 app.component('Checkbox',Checkbox)
+app.component('toggle-menu',Menu)
 
 
 app.mount("#app");
