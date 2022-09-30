@@ -6,7 +6,34 @@
       <component :is="slotProps.Component"></component>
     </transition>
   </router-view>
-  <div class="footer"></div>
+  <div class="footer">
+
+    <div class="imprint">
+      <a href="https://www.radwansultan.de/imprint"
+         target="_blank">
+       Imprint
+      </a>
+      <a href="https://www.radwansultan.de/legalnotice"
+         target="_blank">
+       Legal Notice
+      </a>
+    </div>
+
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/radwan-sultan-el-kassem-a06a522b/"
+         target="_blank">
+        <img src="./components/Layouts/images/icons8-linkedin-circled-30.png"
+             alt="github">
+      </a>
+      <a href="https://github.com/sultanoss"
+         target="_blank">
+        <img src="./components/Layouts/images/icons8-github-30.png"
+             alt="github">
+      </a>
+    </div>
+
+
+  </div>
 </template>
 
 <script>
@@ -37,9 +64,26 @@ body {
   background-color: #eaeaea;
 }
 
-.footer{
+.footer {
   height: 50px;
   background-color: #023b59;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  margin: 10px;
+}
+
+a:active {
+  border: unset;
 }
 
 /*.route-enter-from {*/
@@ -53,17 +97,17 @@ body {
 /*}*/
 
 /*.route-enter-active {*/
-/*  transition: all 225ms ease-in;*/
+/*  !*transition: all 225ms ease-in;*!*/
+/*  transition: opacity 0.5s ease;*/
 /*}*/
 
 /*.route-leave-active {*/
-/*  transition: all 225ms ease-in;*/
+/*  !*transition: all 225ms ease-in;*!*/
+/*  transition: opacity 0.5s ease;*/
 /*}*/
 
-/*.route-enter-to,*/
-/*.route-leave-from {*/
-/*  opacity: 1;*/
-/*  !*transform: translateY(0);*!*/
-/*}*/
+html {
+  scroll-behavior: smooth;
+}
 
 </style>

@@ -34,8 +34,8 @@
 </template>
 
 <script>
-export default {
 
+export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters.isAuthenticated;
@@ -141,6 +141,19 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+
+@media (max-width: 550px) {
+.logo a{
+  display: none;
+}
+  a{
+    font-size: 14px;
+  }
+  button{
+    font-size: 14px;
+  }
 }
 
 </style>

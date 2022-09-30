@@ -5,7 +5,9 @@
                  @close="handleError"> <!--  !!error convert a string to a boolean-->
       <p>{{ error }}</p>
     </base-dialog>
-    <h2>Requests Received</h2>
+    <div class="requests-header">
+      <h2>Requests Received</h2>
+    </div>
     <base-spinner v-if="isLoading"></base-spinner>
     <ul v-else-if="hasRequests && !isLoading">
       <request-item v-for="req in receivedRequests"
@@ -67,8 +69,10 @@ export default {
   align-items: center;
 }
 
-header {
-  text-align: center;
+.requests-header {
+  display: flex;
+  width: 95%;
+
 }
 
 section {
@@ -78,7 +82,7 @@ section {
 ul {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 95%;
   list-style: none;
   padding: 0;
   margin-top: 0;
@@ -90,6 +94,8 @@ li{
   border-radius: 12px;
   margin-top: 0;
   margin-bottom: 20px;
+  padding: 10px;
+  margin-right: 2.3%;
 }
 
 h3 {

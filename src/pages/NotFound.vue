@@ -1,17 +1,31 @@
 <template>
   <section>
-    <base-card>
-      <h2>Page not found</h2>
-      <p>This page could not be found!
-        <router-link to="/coaches">Back</router-link>
-      </p>
-    </base-card>
+      <h2>Page not found !</h2>
+    <router-link to="/coaches">Back</router-link>
   </section>
 </template>
 <script>
-import BaseCard from "@/components/UI/BaseCard";
+
 
 export default {
-  components: { BaseCard }
+  components: {  }
 };
 </script>
+
+<style scoped>
+section{
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  color: #023b59;
+  width: 95%;
+  margin: 0 auto;
+}
+
+section a{
+  color: black;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+</style>

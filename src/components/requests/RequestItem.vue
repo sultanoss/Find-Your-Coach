@@ -31,6 +31,7 @@ a {
   color: #023b59;
   text-decoration: none;
   font-weight: bold;
+  word-break: break-word;
 }
 
 a:hover,

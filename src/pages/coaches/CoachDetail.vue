@@ -4,16 +4,12 @@
       <h2>{{ fullName }}</h2>
       <h3>{{ rate }}/hour</h3>
       <div>
-      <base-badge v-for="area in areas"
-                  :key="area"
-                  :type="area"
-                  :title="area"></base-badge>
+        <base-badge v-for="area in areas"
+                    :key="area"
+                    :type="area"
+                    :title="area"></base-badge>
       </div>
       <p>{{ description }}</p>
-<!--      <h2>Interested Reach out now!</h2>-->
-      <!--      <base-button link-->
-      <!--                   :to="contactLink">Contact-->
-      <!--      </base-button>-->
       <router-view></router-view>
     </div>
   </div>
@@ -28,15 +24,13 @@ export default {
   data() {
     return {
       selectedCoach: null,
+      email:"radwansultan@hotmail.de"
     };
   },
 
   computed: {
     fullName() {
       return this.selectedCoach.firstName + " " + this.selectedCoach.lastName;
-    },
-    contactLink() {
-      return this.$route.path + "/" + this.id + "/contact";
     },
     areas() {
       return this.selectedCoach.areas;
@@ -56,7 +50,12 @@ export default {
     this.selectedCoach = this.$store.getters["coaches/coaches"]
       .find(coach => coach.id === this.id);
   },
-
+methods:{
+  contactLink() {
+    console.log(this.id)
+    return this.$route.path + "/coaches" + this.id + "/contact";
+  },
+}
 };
 </script>
 
@@ -67,15 +66,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   justify-content: center;
+  width: 100%;
 }
 
 .coach-details {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  border: 1px solid #023b59;
+  width: 100%;
   padding: 20px;
   border-radius: 12px;
 }
@@ -93,26 +91,54 @@ h3 {
 }
 
 p {
-  border: 1px solid black;
+  border: 1px solid #023b59;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   min-height: 89px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.frontend{
+@media(max-width: 650px){
+  p{
+    max-height: 120px;
+    overflow: auto;
+  }
+}
+
+.frontend {
   margin-top: 0;
   margin-bottom: 20px;
 }
-.backend{
-   margin-top: 0;
-   margin-bottom: 20px;
- }
 
-.career{
+.backend {
   margin-top: 0;
   margin-bottom: 20px;
+}
+
+.career {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px lightgrey;
+  border: solid 3px transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px rgb(174, 174, 174);
+  border: solid 3px transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 10px 10px rgb(142, 142, 142);
 }
 
 

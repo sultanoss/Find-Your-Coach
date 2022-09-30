@@ -70,6 +70,15 @@ h4 {
   justify-content: flex-end;
   margin-top: 16px;
 }
+@media (max-width: 550px) {
+  .actions{
+    justify-content: space-between;
+  }
+  .actions a{
+    margin: 0;
+    padding: 0;
+  }
+}
 a:active{
   border:none;
 }

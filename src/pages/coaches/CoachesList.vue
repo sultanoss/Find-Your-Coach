@@ -125,6 +125,13 @@ ul {
   padding: 0;
 }
 
+@media (max-width: 550px) {
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
@@ -150,19 +157,22 @@ a:hover {
   opacity: 0.8;
 }
 
-.coaches-list-container{
+.coaches-list-container {
   height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 }
-section{
+
+section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
 }
+
+
 </style>
 

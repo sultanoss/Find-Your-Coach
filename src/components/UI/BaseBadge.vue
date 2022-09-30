@@ -32,17 +32,17 @@ export default {
 }
 
 .frontend {
-  background-color:#023b59;
+  background-color:#ed0b70;
   color: white;
 }
 
 .backend {
-  background-color: #023b59;
+  background-color: #ed0b70;
   color: white;
 }
 
 .career {
-  background-color: #023b59;
+  background-color: #ed0b70;
   color: white;
 }
 

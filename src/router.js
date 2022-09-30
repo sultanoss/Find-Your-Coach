@@ -23,21 +23,19 @@ const router = createRouter({
         { path: "contact", component: ContactCoach } // /coaches/c1/contact
       ]
     },
-    { path: "/register", component: CoacheRegistration},
+    { path: "/register", component: CoacheRegistration },
     { path: "/requests", component: RequestsReceived, meta: { requiresAuth: true } },
     { path: "/auth", component: UserAuth, meta: { requiresUnauth: true } },
     { path: "/:notFound(.*)", component: NoFound }
-
-
-  ]
+  ],
 });
 
 router.beforeEach(function(to, from, next) {
   if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
     next("/auth");
   } else if ((to.meta.requiresUnauth && store.getters.isAuthenticated)) {
-    next('/coaches')
-  }else{
+    next("/coaches");
+  } else {
     next();
   }
 });
